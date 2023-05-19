@@ -23,10 +23,10 @@ public class Main {
           }
           catch(ArrayIndexOutOfBoundsException q){
               System.out.println("your index is greater then size of array");
-              log.error("User id:jdklhaldla,User tried to access index:"+i);
+//              log.error("User id:jdklhaldla,User tried to access index:"+i);
           }
           catch (Exception ex){
-              System.out.println("Parent Exception");
+              System.out.println("Parent Exception"+ex.getMessage());
           }
 
          System.out.println("D");
