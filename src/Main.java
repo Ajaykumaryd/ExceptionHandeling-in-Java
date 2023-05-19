@@ -22,7 +22,8 @@ public class Main {
               System.out.println("Airthmetic Exception");
           }
           catch(ArrayIndexOutOfBoundsException q){
-              System.out.println("ArrayIndexOutOfBoundsException");
+              System.out.println("your index is greater then size of array");
+              log.error("User id:jdklhaldla,User tried to access index:"+i);
           }
           catch (Exception ex){
               System.out.println("Parent Exception");
