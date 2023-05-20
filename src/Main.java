@@ -31,7 +31,15 @@ public class Main {
          if (age < 18) throw new AgeInfo(age);
      }
 
-
+    public static class A {
+        public static void M1(int age){
+            try{
+                  ageInfo(15);
+            }catch (AgeInfo e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
 
 
@@ -57,12 +65,32 @@ public class Main {
          System.out.println("D");
 
           //custom exception
-          int age=9;
-          try{
-            ageInfo(age);
+//          int age=9;
+//          try{
+//            ageInfo(age);
+//        }
+//        catch(RuntimeException r){                   //we can use of AgeInfo Exception
+//            System.out.println(r.getMessage());
+//        }
+
+
+        A a =new A();
+        try {
+            a.M1(15);
+        }catch (AgeInfo ex){
+               System.out.println("Custom Exception");
+           }
+        catch(ArithmeticException e){
+            System.out.println("Airthmetic Exception");
         }
-        catch(RuntimeException r){
-            System.out.println(r.getMessage());
+        catch (RuntimeException r){
+            System.out.println("Runtime Exception");
         }
+        finally {
+            System.out.println("Runtime Exception");
+        }
+
+
+
     }
 }
