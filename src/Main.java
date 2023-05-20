@@ -3,7 +3,7 @@ public class Main {
         System.out.println("A");
         int[] ar ={1,2,3,4};
         int b=1;
-        int a=5/b;                                            // Airthmetic Exception
+        int a=5/0;                                            // Airthmetic Exception
         System.out.println(ar[5]);                           //Out of bound exceptions
         System.out.println("B");  //will not execute
     }
@@ -12,17 +12,28 @@ public class Main {
          try{
              fun();
          }
+
          catch (ArithmeticException e){
-
          }
-         catch(ArrayIndexOutOfBoundsException a){
 
+         catch(ArrayIndexOutOfBoundsException a){
          }
     }
 
-     public static void ageInfo(int age) throws RuntimeException {
-         if (age < 18) throw new RuntimeException("User is UnderAge");
+
+    // custom exception1
+//     public static void ageInfo(int age) throws RuntimeException {
+//         if (age < 18) throw new RuntimeException("User is UnderAge");
+//     }
+
+     //custom exception by method 2
+     public static void ageInfo(int age) throws AgeInfo {
+         if (age < 18) throw new AgeInfo(age);
      }
+
+
+
+
 
     public static void main(String[] args)
     {
@@ -33,13 +44,16 @@ public class Main {
           catch (ArithmeticException e){
               System.out.println("Airthmetic Exception");
           }
+
           catch(ArrayIndexOutOfBoundsException q){
               System.out.println("your index is greater then size of array");
 //              log.error("User id:jdklhaldla,User tried to access index:"+i);
           }
+
           catch (Exception ex){            //we use Exception only at last
               System.out.println("Parent Exception"+ex.getMessage());
           }
+
          System.out.println("D");
 
           //custom exception
@@ -48,7 +62,7 @@ public class Main {
             ageInfo(age);
         }
         catch(RuntimeException r){
-            System.out.println("User is Under Age");
+            System.out.println(r.getMessage());
         }
     }
 }
